@@ -43,6 +43,8 @@
         cursor: pointer;
         text-decoration: none;
         transition: background 0.3s ease;
+        border-radius: 10px;
+        font-weight: 600;
         &:hover {
           background-color: #555;
         }

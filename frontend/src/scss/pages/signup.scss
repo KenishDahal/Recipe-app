@@ -1,0 +1,92 @@
+.signup {
+  display: flex;
+  height: 100%;
+  background-color: white;
+  // left section
+  &__layout {
+    width: 65%;
+    background-color:rgb(255, 212, 219);
+    //   change
+    color: black;
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(
+        circle at bottom left,
+        #3f1bbc,
+        #3f1bbc,
+        rgba(255, 218, 9, 0),
+        rgba(255, 218, 9, 0) // Fully transparent at the edges
+      );
+      z-index: -1; // Layer it below the content
+      pointer-events: none;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      transform: rotate(90deg);
+      border-radius: 90%; // Make it circular
+      bottom: -40%;
+      left: 0%;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(
+        circle at bottom left,
+        #3f1bbc,
+        #3f1bbc,
+        #3f1bbc,
+        rgba(255, 218, 9, 0),
+        rgba(255, 218, 9, 0),
+        #9513b4,
+        #e38602,
+        #e38602,
+        rgba(255, 218, 9, 0),
+        rgba(255, 218, 9, 0),
+        rgba(255, 218, 9, 0)
+      );
+      z-index: -1; // Layer it below the content
+      pointer-events: none;
+    }
+    // position: relative;
+    z-index: 1;
+
+    &__back {
+      padding: 48px 0 0 56px;
+      span {
+        padding-bottom: 21px;
+      }
+    }
+    &__cards {
+      padding: 115px 114px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: fit-content;
+      align-items: center;
+      gap: 40px;
+      &__heading {
+        margin-bottom: 16px;
+      }
+    }
+  }
+  // Right section
+  &__rightSection {
+    margin: auto;
+  }
+}
+
+.row {
+  display: flex;
+  gap: 40px;
+}
+
+//   @include u.breakpoint-down(medium) {
+//     .signup {
+//     }
+//   }

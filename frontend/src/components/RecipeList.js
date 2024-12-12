@@ -6,6 +6,7 @@ import { FcShop } from "react-icons/fc";
 import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
 import { Link } from "react-router-dom";
+import Button from "./button";
 
 const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
@@ -89,57 +90,29 @@ const RecipeList = () => {
 
   return (
     <div>
-    <Carousel showDots={true} responsive={responsive}>
-    {recipes.map((recipe) => (
-        // <div key={recipe._id} className="recipe-card">
-        //   <h3>{recipe.title}</h3>
-        //   <p>
-        //     <strong>Ingredients:</strong> {recipe.ingredients}
-        //   </p>
-        //   <p>
-        //     <strong>Instructions:</strong> {recipe.instructions}
-        //   </p>
-        //   <button onClick={() => handleAddToFavorites(recipe._id)}>
-        //     Add to Favorites
-        //   </button>
-        // </div>
-        <motion.div
-        variants={subVarent}
-        animate={hide ? "hide" : "show"}
-        className="card card--1"
-        key={recipe._id}
-      >
-        <div className="h4">{recipe.title}</div>
-        <button className="card__button" text={"Joint account"} />
-        <div className="card__cashback body">
-          <span>
-          {recipe.ingredients}
-          </span>
-          {recipe.instructions}
-          {/* <span className="hero__secondPart__cashback__dollar">view more</span> */}
-        </div>
-        <Link to="">view more</Link>
-      </motion.div>
-      ))}
-    </Carousel>
-  </div>
-    // <div className="recipes-list">
-    //   {/* <h2>Recipes</h2> */}
-    //   {recipes.map((recipe) => (
-    //     <div key={recipe._id} className="recipe-card">
-    //       <h3>{recipe.title}</h3>
-    //       <p>
-    //         <strong>Ingredients:</strong> {recipe.ingredients}
-    //       </p>
-    //       <p>
-    //         <strong>Instructions:</strong> {recipe.instructions}
-    //       </p>
-    //       <button onClick={() => handleAddToFavorites(recipe._id)}>
-    //         Add to Favorites
-    //       </button>
-    //     </div>
-    //   ))}
-    // </div>
+      <Carousel showDots={true} responsive={responsive}>
+        {recipes.map((recipe) => (
+          <motion.div
+            variants={subVarent}
+            animate={hide ? "hide" : "show"}
+            className="card card--1"
+            key={recipe._id}
+          >
+            <div className="h4">{recipe.title}</div>
+            <Button text={"Get Yours"}/>
+            {/* <div className="card__cashback body">
+              <span>{recipe.ingredients}</span>
+              {recipe.instructions}
+              <span className="hero__secondPart__cashback__dollar">view more</span>
+            </div> */}
+            <button onClick={() => handleAddToFavorites(recipe._id)}>
+              Add to Favorites
+            </button>
+          </motion.div>
+        ))}
+      </Carousel>
+    </div>
+
   );
 };
 

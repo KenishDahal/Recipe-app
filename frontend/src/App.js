@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router,Navigate, Route, Routes } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Recipes from "./components/Recipes";
@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Form from "./pages/Form";
 
 const App = () => {
   const isAuthenticated = !!localStorage.getItem("token");
@@ -15,26 +16,26 @@ const App = () => {
   return (
     <div>
       <Router>
-        <Navbar/>
+        {/* <Navbar/> */}
         <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Form />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route
             path="/addrecipes"
-            element={isAuthenticated ? <Recipes /> : <Link to="/login" />}
+            element={isAuthenticated ? <Recipes /> : <Navigate to="/login" />}
           />
           <Route
-            path="/"
-            element={isAuthenticated ? <Recipes /> : <Link to="/login" />}
+            path="/home"
+            element={isAuthenticated ? <Home /> : <Navigate to="/login" />}
           />
            <Route
             path="/recipe/:id"
-            element={isAuthenticated ? <Recipes /> : <Link to="/login" />}
+            element={isAuthenticated ? <Recipes /> :<Navigate to="/login" />}
           />
           <Route
             path="/favorites"
-            element={isAuthenticated ? <Favorites /> : <Link to="/login" />}
+            element={isAuthenticated ? <Favorites /> :<Navigate to="/login" />}
           />
         </Routes>
         <Footer/>
